@@ -13,7 +13,7 @@ GADGET_INIT_SCRIPTS_LICENSE = MIT
 
 ifeq ($(strip $(BR2_PACKAGE_GADGET_INIT_SCRIPTS_USB_GADGET)),y)
 define GADGET_INIT_SCRIPTS_INSTALL_USB_GADGET
-	$(INSTALL) -D -m 700 $(@D)/etc/init.d/S34_usb_gadget $(TARGET_DIR)/etc/init.d/
+	$(INSTALL) -D -m 700 $(@D)/etc/init.d/S99_adbd $(TARGET_DIR)/etc/init.d/
 	$(INSTALL) -d -m 755 $(TARGET_DIR)/etc/connman
 	$(INSTALL) -D -m 644 $(@D)/etc/connman/main.conf $(TARGET_DIR)/etc/connman/
 	$(INSTALL) -D -m 644 $(@D)/etc/dnsmasq.conf $(TARGET_DIR)/etc/

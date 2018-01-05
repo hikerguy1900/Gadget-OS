@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# generate serial number
+CONFIG_FILE=/var/lib/adb.cfg
+[[ -f "${CONFIG_FILE}" ]] && source "${CONFIG_FILE}"
+[[ -z "${SERIAL}" ]] && SERIAL="$(echo $RANDOM | md5sum | cut -c 1-16)" && echo "SERIAL=${SERIAL}" >"${CONFIG_FILE}"
+
+modprobe g_ffs idVendor=0x1DA0 idProduct=0x0004 iSerialNumber=${SERIAL}
+mkdir -p /dev/usb-ffs/adb
+mount -t functionfs adb /dev/usb-ffs/adb -o uid=2000,gid=2000
+adbd &
