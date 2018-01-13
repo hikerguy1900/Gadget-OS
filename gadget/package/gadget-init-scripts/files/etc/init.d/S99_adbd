@@ -9,3 +9,41 @@ modprobe g_ffs idVendor=0x1DA0 idProduct=0x0004 iSerialNumber=${SERIAL}
 mkdir -p /dev/usb-ffs/adb
 mount -t functionfs adb /dev/usb-ffs/adb -o uid=2000,gid=2000
 adbd &
+
+# Setup symbolic links to TTDL sysfs nodes for easy platform independent access
+mount -o remount,rw /
+mkdir -p /root/ttdl
+cd /root/ttdl/
+ln -s /sys/bus/i2c/devices/2-0024/ i2c
+ln -s /sys/kernel/debug/2-0024/mfg_test mfg_test
+ln -s /sys/class/firmware/2-0024 program
+ln -s /sys/kernel/debug/tthe_tuner tthe_tuner
+
+# Setup symbolic links to GPIO used by PtMfg for easy platform independent access
+mkdir -p /root/ptmfg
+cd /root/ptmfg
+ln -s /sys/class/gpio/gpio37 gpio_mfg_enable
+ln -s /sys/class/gpio/gpio38 gpio_mfg_start
+ln -s /sys/class/gpio/gpio39 gpio_mfg_stop
+ln -s /sys/class/gpio/gpio40 gpio_mfg_pass
+ln -s /sys/class/gpio/gpio41 gpio_mfg_fail
+
+# TODO Setup GPIO for MFG_ENABLE, STOP, START, PASS, and FAIL. Then create sym links.
+cd /sys/class/gpio
+
+#MFG_ENABLE PB5 37
+echo 37 > ./export
+echo in > ./gpio37/direction
+#MFG_START PB6 38
+echo 38 > ./export
+echo in > ./gpio38/direction
+#MFG_STOP PB7 39
+echo 39 > ./export
+echo in > ./gpio39/direction
+#MFG_PASS PB8 40
+echo 40 > ./export
+echo out > ./gpio40/direction
+#MFG_FAIL PB9 41
+echo 41 > ./export
+echo out > ./gpio41/direction
+mount -o remount,ro /
