@@ -14,9 +14,9 @@ adbd &
 mount -o remount,rw /
 mkdir -p /root/ttdl
 cd /root/ttdl/
-ln -s /sys/bus/i2c/devices/2-0024/ i2c
-ln -s /sys/kernel/debug/2-0024/mfg_test mfg_test
-ln -s /sys/class/firmware/2-0024 program
+ln -s /sys/bus/i2c/devices/1-0024/ i2c
+ln -s /sys/kernel/debug/1-0024/mfg_test mfg_test
+ln -s /sys/class/firmware/1-0024 program
 ln -s /sys/kernel/debug/tthe_tuner tthe_tuner
 
 # Setup symbolic links to GPIO used by PtMfg for easy platform independent access
