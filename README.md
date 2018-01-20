@@ -1,7 +1,5 @@
 # gadgetos
 
-## Please be advised that GadgetOS will eventually replace [Gadget-buildroot](https://github.com/NextThingCo/gadget-buildroot), however the software and documentation for GadgetOS are under very active, daily development. This is a work in progress release of the source code.
-
 ## Install required build tools
 
 #### Install sunxi-fel and fastboot
