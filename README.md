@@ -53,7 +53,7 @@ https://docs.docker.com/docker-for-mac/
 
 #### Get gadgetos source code
 ```
-git clone https://github.com/NextThingCo/Gadget-OS.git
+git clone https://github.com/hikerguy1900/Gadget-OS.git
 cd Gadget-OS
 ```
 
