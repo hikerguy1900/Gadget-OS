@@ -1,7 +1,5 @@
 # gadgetos
 
-## Please be advised that GadgetOS will eventually replace [Gadget-buildroot](https://github.com/NextThingCo/gadget-buildroot), however the software and documentation for GadgetOS are under very active, daily development. This is a work in progress release of the source code.
-
 ## Install required build tools
 
 #### Install sunxi-fel and fastboot
@@ -53,7 +51,7 @@ https://docs.docker.com/docker-for-mac/
 
 #### Get gadgetos source code
 ```
-git clone https://github.com/NextThingCo/Gadget-OS.git
+git clone https://github.com/hikerguy1900/Gadget-OS.git
 cd Gadget-OS
 ```
 
